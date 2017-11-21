@@ -199,7 +199,7 @@ Do not place an empty line in the following places:
   ```csharp
   string contents = header
     .Replace("{Year}", DateTime.Now.Year.ToString())
-    .Replace("{User}", "ENCODO")
+    .Replace("{User}", "SEL")
     .Replace("{DateTime}", DateTime.Now.ToString());
   ```
 * If a line of a chained method-call opens a new logical context, then ensuing lines should be indented to indicate this. For example, the following example joins tables together, with the last three statements applied to the last joined table. The indenting helps make this clear.

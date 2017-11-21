@@ -85,7 +85,7 @@ All other entites | Pascal
 
 ## Grouping
 
-* Do not use a “library” prefix for types (e.g. instead of `QnoDatabase`, use a more descriptive name, like `MetaDatabase` or `RelationalDatabase`).
+* Do not use a “library” prefix for types (e.g. instead of `SELDatabase`, use a more descriptive name, like `MetaDatabase` or `RelationalDatabase`).
 * You may use a prefix when it's more convenient for disambiguation, as for UI-control libraries. If you do use a prefix, use a whole word (e.g. prefer `Quino` to `Qno`) and apply it consistently.
 * Avoid very generic type names (e.g. `Element`, `Node`, `Message` or `Log`), which collide with types from the framework or other commonly-used libraries. Use a more specific name, if at all possible.
 * If there are multiple types encapsulating similar concepts (but with different implementations, for example), you should use a common suffix to group them. For example, all the exception types end in the word Exception.

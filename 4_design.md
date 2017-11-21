@@ -52,7 +52,7 @@ With use-cases in mind, here are some points to consider when building a class.
 
 * Be as stingy as possible when making methods public; smaller APIs are easier to understand.
 * If another assembly needs a type to be public, consider whether that type could not remain internalized if the API were higher-level. Use the Object Browser to examine the public API.
-* To this end, frameworks that are logically split into multiple assemblies can use the `InternalsVisibleTo` attributes to make “friend assemblies” and avoid making elements public. Given three assemblies, `Quino`, `QuinoWinform` and `QuinoWeb` (of which a standard Windows application would include only the first two), the `Quino` assembly can make its internals visible to `QuinoWinform`.
+* To this end, frameworks that are logically split into multiple assemblies can use the `InternalsVisibleTo` attributes to make “friend assemblies” and avoid making elements public. Given three assemblies, `SEL`, `SELWinform` and `SELWeb` (of which a standard Windows application would include only the first two), the `SEL` assembly can make its internals visible to `SELWinform`.
 
 ## Read-only Interfaces
 

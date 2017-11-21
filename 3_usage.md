@@ -15,22 +15,12 @@ The example below illustrates the projects for a solution called “Calculator�
 * `Calculator.Wpf`
 * `Calculator.Console`
 
-The first three define libraries of functionality that is used by the next four applications. The server and console only use the `Calculator.Core` library whereas the _Winform_ and _WPF_ applications use their respective libraries. Separating the renderer-dependent code into a separate library makes it much easier to add another application using the same renderer but performing a slightly different task. Only highly application-dependent code should be defined directly in an application project.
+The first three define libraries of functionality that is used by the next three applications. The server and console only use the `Calculator.Core` library whereas the _Winform_ and _WPF_ applications use their respective libraries. Separating the renderer-dependent code into a separate library makes it much easier to add another application using the same renderer but performing a slightly different task. Only highly application-dependent code should be defined directly in an application project.
 
 ### Files
 
 * Place each type (classes, interfaces, enums, etc.) in a separate file.
-* Each file should include a header, with the following form:
-  ```csharp
-  // <copyright file="Filename.cs" company="Encodo Systems AG">
-  //   Copyright (c) 2017 Encodo Systems AG. All rights reserved.
-  // </copyright>
-  // <license>
-  //   This file is subject to the terms and conditions defined in the 'LICENSE' file.
-  // </license>
-  ```
-  A solution should include licensing conditions in a file named `LICENSE`.
-* Namespace `using` statements should go at the very top of the file, just after the header and just before the namespace declaration.
+* Namespace `using` statements should go at the very top of the file, just before the namespace declaration.
 * The namespaces at the top of the file should be in alphabetical order, with the exception that `System.*` assemblies come first.
 
 ### Namespaces
@@ -44,12 +34,12 @@ The first three define libraries of functionality that is used by the next four 
 
 #### Defining
 
-* Put abstract/high-level types in outer namespaces (e.g. `Encodo.Quino.Data`).
-* Put concrete types in inner ones (e.g. `Encodo.Quino.Data.Ado`).
+* Put abstract/high-level types in outer namespaces (e.g. `DAL.Data`).
+* Put concrete types in inner ones (e.g. `DAL.Data.Ado`).
 * Group types in specific namespaces.
 * Avoid deep hierarchies, as they are more difficult to browse and understand.
 * For general-use types, it's OK to use “Utilities”, “Core” or “General”.
-* Refactor types into new namespaces if a clear presents itself.
+* Refactor types into new namespaces if a clear opportunity presents itself.
 
 ## Types
 
@@ -378,7 +368,7 @@ Instead, you should take the call LogIn() out of the setter for Password and mak
 var system = new SecuritySystem()
 {
   Password = "knock knock";
-  UserName = "Encodo";
+  UserName = "SEL";
 }
 system.LogIn();
 ```
@@ -1130,11 +1120,11 @@ public class SomeClass
 For other conditional compilation, use a static method in a static class instead of scattering conditional options throughout the code.
 
 ```csharp
-public static class EncodoCompilerOptions
+public static class SelCompilerOptions
 {
   public static bool DeveloperBuild()
   {
-#if ENCODO_DEVELOPER
+#if SEL_DEVELOPER
     return true;
 #else
     return false;
@@ -1146,8 +1136,8 @@ public static class EncodoCompilerOptions
 This approach has the following advantages:
 
 * The compiler checks all code paths instead of just the one satisfying the current options; this avoids unknowingly retaining incompatible code in a library or application.
-* Code formatting and indenting is not broken up by (possibly overlapping) compile conditions; the name `EncodoCompilerOptions` makes the connection to the compiler obvious enough.
-* The compiler option is referenced only once, avoiding situations in which some code uses one compiler option (e.g. `ENCODO_DEVELOPER`) and other code uses another, misspelled option (e.g. `ENCODE_DEVELOPER`).
+* Code formatting and indenting is not broken up by (possibly overlapping) compile conditions; the name `SelCompilerOptions` makes the connection to the compiler obvious enough.
+* The compiler option is referenced only once, avoiding situations in which some code uses one compiler option (e.g. `SEL_DEVELOPER`) and other code uses another, misspelled option (e.g. `ENCODE_DEVELOPER`).
 
 ### Comments
 
@@ -1162,9 +1152,9 @@ This approach has the following advantages:
         // commented code block
   #endif
   ```
-* Use the single-line comment style with `TODO` to indicate an issue that must be addressed. Before a check-in, these issues must either be addressed or documented in the issue tracker, adding the URL of the issue to the TODO as follows:
+* Use the single-line comment style with `TODO` to indicate an issue that must be addressed. Before a check-in, these issues must either be addressed or a work item created, adding the work item number to the TODO as follows:
   ```csharp
-  // TODO http://issue-tracker.encodo.com/?id=5647: Title of the issue in the issue tracker
+  // TODO #144523: Title of the work item
   ```
 
 #### Placement
