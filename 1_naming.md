@@ -13,7 +13,7 @@
 * Use **English grammar** (e.g. use `ImportableDatabase` instead of `DatabaseImportable`).
 * Use only **standard abbreviations** (e.g. “XML” or “SQL”).
 * Use **correct capitalization**. If a word is not hyphenated, then it does not need a capital letter in the camel- or Pascal-cased form. For example, “metadata” is written as `Metadata` in Pascal-case, not `MetaData`.
-* Use **number names** instead of numbers (e.g. `partTwo` instead of `part2`).
+* Use **number names** instead of numbers (e.g. `partTwo` instead of `part2`). The exception been when using standard acronyms known within our domain (e.g. `X509Certificate` or `P11d`).
 * Do not use Hungarian notation or any other prefixing notation to "group" types or members.
 * Use **whole words** or stick to accepted short forms (e.g. you may use `max` for `maximum` but prefer the suffix `Count` to the prefix `num`).
 
