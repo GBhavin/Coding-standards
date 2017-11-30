@@ -116,8 +116,8 @@ A parameter name or local variable should have the same name as the type. It is 
   Company.cs          // user-modifiable file
   Company.Metadata.cs // properties generated from metadata
   ```
-* If a generic type is the only type with that name, then do not include the parameter names in the filename. If there is a non-generic type and a generic type with the same name, then the filename should include the generic argument names enclosed in `{}`. E.g. If the types `Atom` and `Atom<TInput>` both exist, then the filenames should be `Atom.c` and `Atom{TInput}.cs`, respectively.
-* Tests for a file go in `<FileName>Tests.cs` (if there are a lot of tests, they should be split into several files, but always using the form `<Extra><FileName>Tests.cs`) where `Extra` identifies the group of tests found in the file. Tests should be defined in their own assembly using the same name as the target assembly `<Assembly>Tests` to avoid dependencies on unit-testing assemblies. The tests for a class should appear in the same location as the class being tested. That is, the tests for the class `Tools.Csv.CsvParser` should be in `Tools.Tests.Csv.CsvParser`.
+* If a generic type is the only type with that name, then do not include the parameter names in the filename. If there is a non-generic type and a generic type with the same name, then the filename should include the generic argument names enclosed in `{}`. E.g. If the types `Atom` and `Atom<TInput>` both exist, then the filenames should be `Atom.cs` and `Atom{TInput}.cs`, respectively.
+* Unit Tests for a file go in `<FileName>Tests.cs` (if there are a lot of tests, they should be split into several files, but always using the form `<Extra><FileName>Tests.cs`) where `Extra` identifies the group of tests found in the file. Tests should be defined in their own assembly using the same name as the target assembly `<Assembly>Tests` to avoid dependencies on unit-testing assemblies. The tests for a class should appear in the same location as the class being tested. That is, the tests for the class `Tools.Csv.CsvParser` should be in `Tools.Tests.Csv.CsvParser`.
 
 ### Namespaces
 
