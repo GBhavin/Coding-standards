@@ -187,3 +187,73 @@ return dataCount – data.Count;
 ```
 
 The first algorithm is more efficient when the majority of item in `data` are empty. The second algorithm is more efficient when the majority is non-empty.
+
+## Controlling Class Instantiation
+
+Careless instatiation of a class can lead to unwanted side effects in transactions that are compcarried out downstream of the object's creation. Take the following class as an example:
+
+```csharp
+  public class Human
+  {
+    public string Name {get; set;}
+
+    public int Age {get; set;}
+
+    public bool HasHair {get; set;}
+  }
+```
+
+An object can be created from this class as simply as follows:
+
+```csharp
+  var human = new Human();
+```
+
+Great - nice and easy with minimal code. But there are two problems to this:
+
+1. Modern day software development practices such as Domain Driven Design have it that you should ensure your code reflects its real-world abstraction. In the example above, we have created a new `Human`. This new `Human` however is only a "shell" so to speak; having no attibutes or properties giving it any purpose. In this abstraction, it does not make sense to create a new `Human` that is missing vital information such as its Name and Age. It's not possible in real-life so why should this be allowed to happen in your code?
+
+2. With a brand new `Human` object created, it will most likely either be passed to another method or saved to a database. This new instantiation, `human`, carries problems with it. Take the following example:
+
+```csharp
+  public int GetNumberOfLettersInName(Human human)
+  {
+      return human.Name.Length;
+  }
+```
+
+If we were to pass our newly created `human` object into this method, we'd get a `NullReferenceException` thrown as the `Name` property was never set.
+
+NULL reference checks could be introduced to the method but doing this often causes uneccessary background noise and impacts the readability of the code. It is advised that the following changes are made to the class:
+
+```csharp
+  public class Human
+  {
+    public string Name {get; set;}
+
+    public int Age {get; set;}
+
+    public bool HasHair {get; set;}
+
+    private Human()
+    {
+
+    }
+
+    public static Human Create(string name, int Age, bool hasHair)
+    {
+      return new Human()
+      {
+        Name = name,
+        Age = age,
+        HasHair = hasHair
+      };
+    }
+  }
+```
+
+The benefits of this approach are:
+
+* The default Constructor for the class has been made `private`. This means that only the class itself has the ability to create a new instance of itself. This stops the client from instantiating empty instances of the class that could cause errors in code consuming it.
+
+* The `Create` method is the only publicly exposed way in which the client can create a new instance of the `Human` class. Due to this, you can control the minimum arguments required to create a valid instance of the class. In this example above, you can only create a new `Human` if you provide its `Name`, `Age` and whether or not it `HasHair`. By knowing that it's not possible to create a `Human` without a `Name`, it removes the need for NULL reference checks downstream of class instantiation.
