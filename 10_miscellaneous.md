@@ -13,7 +13,7 @@
 
 * Do not log directly to any output (e.g. a file or the console).
 * Avoid logging directly to global or static constructs.
-* Instead, inject an interface into the method where needed (e.g. `ILogger`).
+* Instead, inject an interface into the method where needed (e.g. `ILog`).
 
 ### `ValueTask<T>`
 

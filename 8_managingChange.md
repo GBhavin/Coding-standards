@@ -37,13 +37,13 @@ If the change is localized, you can of course make it right away. If not, you ma
 1.	Mark the old version of the feature as obsolete.
 1.	Create the new feature with a different name so that it does not collide with the existing feature.
 1.	Rewrite the code so that the main code path uses the new feature but also incorporates the old version as well.
-1.	Add an issue to complete the next stage of refactoring in the next release.
+1.	Create a work item to complete the next stage of refactoring in the next release.
 1.	Make and distribute a point release.
 1.	In the next release, remove the obsolete feature and all handling for it.
 1.	Rename the new feature to the desired name but retain a copy with the temporary name as well, marking it as obsolete.
-1.	Update the issue to indicate that it should be completed in the next release.
+1.	Update the work item to indicate that it should be completed in the next release.
 1.	Make and distribute a point release.
 1.	In the next release, remove the obsolete version with the temporary name and the refactoring is complete.
-1.	Close the issue.
+1.	Close the work item.
 
 Because the steps outlined above require the patience of a saint, they should really only be used for features that absolutely _must_ be refactored but that absolutely _cannot_ break customer code. In all other cases, refactor away and make sure that repair instructions for the compile error are included in the release notes.

@@ -420,7 +420,7 @@ In this case, Password can be set before the UserName without causing any proble
 * Avoid re-assigning the value of a parameter. Instead, use a local variable.
 * A valid re-assignment is for nullable parameters, of the form shown below:
   ```csharp
-  void Apply([NotNull] IMigrationPlan plan, [CanBeNull] ILogger logger = null)
+  void Apply([NotNull] IMigrationPlan plan, [CanBeNull] ILog logger = null)
   {
     if (plan != null) { throw new ArgumentNullException(nameof(plan)); }
 

@@ -6,7 +6,7 @@
 * Prefer exceptions to return codes.
 * Use a return code only where all results are valid.
 * Use the `Try*`-pattern (illustrated below) to encapsulate methods that can fail.
-* If errors/warnings are expected, then use an `ILogger` or similar construct to record those warnings rather than throwing and multiple catching exceptions.
+* If errors/warnings are expected, then use an `ILog` or similar construct to record those warnings rather than throwing and multiple catching exceptions.
 
 ## Terms
 

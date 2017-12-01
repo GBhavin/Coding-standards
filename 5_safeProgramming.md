@@ -16,16 +16,16 @@
 Instead of allowing `null` for a parameter, avoid null-checks with a null implementation.
 
 ```csharp
-interface ILogger
+interface ILog
 {
   bool Log(string message);
 }
 
-class NullLogger : ILogger
+class NullLogger : ILog
 {
   void Log(string message)
   {
-    // NOP
+    // Does not actually do anything
   }
 }
 ```
