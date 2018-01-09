@@ -54,12 +54,12 @@ Language Element | Case
 --- | ---
 Namespace | Pascal
 Class | Pascal
-Interface | Pascal w/leading `I`
+Interface | Pascal with `I` prefix
 Struct | Pascal
 Enumerated type | Pascal
 Enumerated element | Pascal
 Properties | Pascal
-Generic parameters | Pascal /w leading `T`
+Generic parameters | Pascal with `T` prefix
 Tuple field | Pascal
 Public or protected `readonly` or `const` field | Pascal
 Private field | Camel with leading underscore
