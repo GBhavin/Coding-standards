@@ -59,7 +59,7 @@ Struct | Pascal
 Enumerated type | Pascal
 Enumerated element | Pascal
 Properties | Pascal
-Generic parameters | Pascal /w leading 'T'
+Generic parameters | Pascal /w leading `T`
 Tuple field | Pascal
 Public or protected `readonly` or `const` field | Pascal
 Private field | Camel with leading underscore
