@@ -999,6 +999,29 @@ company.People?[0]?.ContactInfo?.BusinessAddress.Street
 
 If the data is not dynamic, then `People`, `ContactInfo` and `BusinessAddress` should never be `null`.
 
+### Null-coalescing operator
+
+* Use the `??`-operator only when no handling for `null` cases is required and both outcomes as easy to understand.
+* Where code is convuluted space out and comment where required in order to make it easier to follow.
+* Most code should not use this operator; instead, enforce non-null values.
+
+For example, the following example calls a method to return a value that could be null but in this instance if it is null then set to the default value.
+
+```csharp
+int i = GetNullableInt() ?? default(int);
+```
+
+### Ternary conditional operator
+
+* Use the `?:`-operator only when the condition and both outcomes are simple and easy understand.
+* Where code is convuluted space out and comment where required in order to make it easier to follow.
+
+For example, the following example has a easy to understand condition and both outcomes are simple.
+
+```csharp
+var classify = (input > 0) ? "positive" : "negative";  
+```
+
 #### `throw`-Expressions
 
 * Only use `throw`-expressions at the end of an expression.
